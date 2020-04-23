@@ -1,7 +1,14 @@
 import React from 'react'
 
 const AppHeader = () => {
-  return <h1>My Todo List</h1>
+
+  const styleHeader = {
+    fontSize: '1rem',
+    borderRadius: '5px',
+    color: 'blue'
+  }
+
+  return <h1 style={ styleHeader } >My Todo List</h1>
 }
 
 export default AppHeader
