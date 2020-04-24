@@ -1,21 +1,22 @@
 import React from 'react'
 import TodoListItem from './Todo_List_Item'
-const items = ['Learn React To Go', 'Build Awesome', 'Next step']
+import './Todo_list.css'
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
+
+  const elements = todos.map((item) => {
+
+    const {id, ...itemProps} = item
+    return (
+      <li key={item.id} className="list-group-item"> 
+        < TodoListItem { ...itemProps } />
+      </li>
+    )
+  })
   return (
-    <ul className="foo">
-      <li>{ items[0] }</li>
-      <li>{ items[1] }</li>
-      <li><TodoListItem label="It's okey!"
-      important /></li>
-      <li><TodoListItem 
-      label="Everything excellent!" 
-      important /></li>
-      <li><TodoListItem 
-      label="How are you?" 
-      important /></li>
-    </ul>
+    <ul className="list-group todo_list">
+      { elements }
+    </ul> 
   )
 }
 
