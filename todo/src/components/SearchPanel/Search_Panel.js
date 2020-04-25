@@ -1,5 +1,6 @@
 import React from 'react'
-import ItemStatusFilter from './Item_status_filter'
+
+import ItemStatusFilter from '../ItemStatusFilter'
 
 import './Search_panel.css'
 
