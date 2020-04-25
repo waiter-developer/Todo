@@ -1,0 +1,11 @@
+.todo_list_item {
+  display: flex;
+}
+
+.todo_list_item .todo_list_item_label {
+  flex-grow: 1;
+}
+
+.todo_list_item .btn:nth-child(odd) {
+  margin-left: 0.25rem;
+}

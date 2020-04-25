@@ -1,24 +1,19 @@
 import React from 'react'
+import ItemStatusFilter from './Item_status_filter'
+
+import './Search_panel.css'
 
 const SearchPanel = () => {
 
   const searchText = 'Type here to search'
   
-  const searchStyle = {
-    paddingTop: "0.5rem",
-    paddingBottom: '0.5rem',
-    paddingLeft: '10px',
-    fontSize: '1rem',
-    backgroundColor: 'black',
-    color: 'green',
-    border:'1px solid red',
-    borderRadius: '5px'
-  }
-  return <input 
-  type="phone" 
-  placeholder={searchText} 
-  style={searchStyle} 
-   />
+  return (
+    <div className="search_panel">
+      <input className="search_panel_input" placeholder={searchText} />
+      < ItemStatusFilter/>
+    </div>
+  
+  )
 }
 
 export default SearchPanel
