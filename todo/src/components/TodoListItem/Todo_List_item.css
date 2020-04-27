@@ -1,11 +1,24 @@
 .todo_list_item {
-  display: flex;
+  font-size: 1.23rem;
 }
 
-.todo_list_item .todo_list_item_label {
-  flex-grow: 1;
+.todo_list_item button {
+  width: 2.5rem;
+  margin: .2rem;
 }
 
-.todo_list_item .btn:nth-child(odd) {
-  margin-left: 0.25rem;
+.todo_list_item_label {
+  margin-left: 1.25rem;
+  line-height: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo_list_item.done .todo_list_item_label {
+  text-decoration: line-through;
+}
+
+.todo_list_item.important .todo_list_item_label {
+  font-weight: 700;
+  color: steelblue;
 }
