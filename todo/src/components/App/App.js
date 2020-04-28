@@ -34,9 +34,8 @@ export default class App extends Component {
     this.setState(({todoData}) => {
       const idx = todoData.findIndex((el) => el.id === id)
      
-      
-      const newArr = [...todoData.splice(0, idx), 
-                      ...todoData.splice(idx + 1 )
+      const newArr = [...todoData.slice(0, idx), 
+                      ...todoData.slice(idx + 1 )
                       ]
       return {
         todoData: newArr
@@ -49,8 +48,8 @@ export default class App extends Component {
 
     this.setState(({todoData}) => {
       const newArr = [
-        newItem,
-        ...todoData
+        ...todoData,
+        newItem
       ]
 
       return {
@@ -69,9 +68,9 @@ export default class App extends Component {
                        [propName]: !oldItem[propName]
                       }
 
-        return [...arr.splice(0, idx), 
+        return [...arr.slice(0, idx), 
         newItem,
-        ...arr.splice(idx + 1 )
+        ...arr.slice(idx + 1 )
         ]
 
   }
