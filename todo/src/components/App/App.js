@@ -3,11 +3,15 @@ import React, {Component} from 'react'
 import AppHeader from '../AppHeader'
 import SearchPanel from '../SearchPanel'
 import TodoList from '../TodoList'
+import AddNewItem from '../AddNewItem'
 
 import './App.css'
 
 export default class App extends Component {
- 
+
+  maxId = 4
+
+
   state = {
     todoData: [
       { label: 'Drink Coffee', important: false, id: 1},
@@ -31,17 +35,42 @@ export default class App extends Component {
     })
   }
 
+  addNewItem = (text) => {
+    const newItem = {
+      label: text, 
+      import: false, 
+      id: this.maxId++
+    }
+
+    this.setState(({todoData}) => {
+      const newArr = [
+        newItem,
+        ...todoData
+      ]
+
+      return {
+        todoData: newArr
+      }
+    })
+
+  }
 
 
   render() {
     const {todoData} = this.state
   
     return (
-    <div className="container">  
-      <AppHeader todo={1} done={3} />
-      <SearchPanel />
-      <TodoList todos={todoData}  onDeleted={this.deleteItem}/>
-    </div>
+      <div className="container App_main_container">
+          <div className="App_doashbord_list">  
+            <AppHeader todo={1} done={3} />
+            <SearchPanel />
+            <TodoList todos={todoData}  onDeleted={this.deleteItem}/>
+            
+          </div>
+          <div className="App_add_new_item">
+            <AddNewItem onAddedItem={this.addNewItem} />
+           </div>
+      </div>  
     )
   }
 }
