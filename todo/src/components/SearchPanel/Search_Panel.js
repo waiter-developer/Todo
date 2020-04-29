@@ -6,8 +6,8 @@ import './Search_panel.css'
 
 export default class SearchPanel extends Component {
   
-  onInputBlur = () => {
-    console.log(this.props)
+  onInputBlur = (e) => {
+    console.log(e.target.value)
   }
   
   render() {
@@ -16,7 +16,9 @@ export default class SearchPanel extends Component {
 
     return (
       <div className="search_panel">
-        <input onBlur={this.onInputBlur} className="search_panel_input" placeholder={searchText} />
+        <input onChange={this.onInputBlur} 
+                className="search_panel_input" 
+                placeholder={searchText} />
         < ItemStatusFilter/>
       </div>
     
