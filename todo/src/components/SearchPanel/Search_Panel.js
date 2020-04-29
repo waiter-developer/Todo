@@ -6,19 +6,28 @@ import './Search_panel.css'
 
 export default class SearchPanel extends Component {
   
-  onInputBlur = (e) => {
-    console.log(e.target.value)
+  state = {
+    term: ''
   }
   
-  render() {
+  onSearchChange = (e) => {
+    const term = e.target.value
 
+    this.setState({term})
+    this.props.onSearchChange(term)
+  }
+  render() {
+    
     const searchText = 'Type here to search'
 
     return (
       <div className="search_panel">
-        <input onChange={this.onInputBlur} 
+        <input  type="text"
                 className="search_panel_input" 
-                placeholder={searchText} />
+                placeholder={searchText} 
+                value={this.state.term} 
+                onChange={this.onSearchChange}
+                />
         < ItemStatusFilter/>
       </div>
     
