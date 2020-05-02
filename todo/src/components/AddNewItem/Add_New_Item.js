@@ -28,12 +28,12 @@ export default class AddNewItem extends Component {
     return (
       <form className="Add_new_item d-flex" onSubmit={this.onSubmit}>
         <input type="text" 
-               className="form-control float-left" 
+               className="form-control " 
                 onChange={this.onLabelChange} 
                 placeholder="What needs to be done" 
                 value={this.state.label} />
         <button type="submit"
-                className="btn btn-outline-primary btn-sm float-right"
+                className="btn btn-outline-primary btn-sm"
                 >
           Add a new Item
         </button>
